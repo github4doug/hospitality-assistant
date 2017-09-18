@@ -1,0 +1,365 @@
+{
+  "_links": {
+    "self": {
+      "href": "/v2-beta/media/2584414f-c815-4713-b2d4-85f3857cb97b"
+    }
+  },
+  "media": {
+    "mediaId": "2584414f-c815-4713-b2d4-85f3857cb97b",
+    "status": "finished",
+    "metadata": {
+      "contentType": "audio/x-wav",
+      "length": {
+        "milliseconds": 14730,
+        "descriptive": "14.0 sec"
+      }
+    },
+    "job": {
+      "progress": {
+        "jobId": "4ddca2c3-1e0c-46ba-b045-9ef89f32c430",
+        "status": "completed",
+        "start": "9bdacf28-9952-408c-9331-8df75e9c4a21",
+        "finish": "f354cc85-0f21-4f52-a43c-50deb11f16ae",
+        "tasks": {
+          "9bdacf28-9952-408c-9331-8df75e9c4a21": {
+            "taskId": "9bdacf28-9952-408c-9331-8df75e9c4a21",
+            "phase": "ingest",
+            "display": "Ingest",
+            "status": "finished",
+            "dependents": [
+              "7b398937-ec6b-47d1-a75a-0f28c994eeb4"
+            ],
+            "dependencies": []
+          },
+          "e753ad14-5149-4429-b05a-ad467910b0b4": {
+            "taskId": "e753ad14-5149-4429-b05a-ad467910b0b4",
+            "phase": "transcripts",
+            "display": "Transcripts",
+            "status": "finished",
+            "dependents": [
+              "a16e4785-5ea5-4cb8-9b35-5580a856d5ac"
+            ],
+            "dependencies": [
+              "7b398937-ec6b-47d1-a75a-0f28c994eeb4"
+            ]
+          },
+          "a16e4785-5ea5-4cb8-9b35-5580a856d5ac": {
+            "taskId": "a16e4785-5ea5-4cb8-9b35-5580a856d5ac",
+            "phase": "transcripts",
+            "display": "Transcripts",
+            "status": "finished",
+            "dependents": [
+              "dc53b012-7b90-400f-adae-5ef66a83c6f3"
+            ],
+            "dependencies": [
+              "e753ad14-5149-4429-b05a-ad467910b0b4"
+            ]
+          },
+          "dc53b012-7b90-400f-adae-5ef66a83c6f3": {
+            "taskId": "dc53b012-7b90-400f-adae-5ef66a83c6f3",
+            "phase": "transcripts",
+            "display": "Transcripts",
+            "status": "finished",
+            "dependents": [
+              "9e6fe100-3606-4e32-adab-84992198b942"
+            ],
+            "dependencies": [
+              "a16e4785-5ea5-4cb8-9b35-5580a856d5ac"
+            ]
+          },
+          "9e6fe100-3606-4e32-adab-84992198b942": {
+            "taskId": "9e6fe100-3606-4e32-adab-84992198b942",
+            "phase": "keywords",
+            "display": "Keywords",
+            "status": "finished",
+            "dependents": [
+              "f354cc85-0f21-4f52-a43c-50deb11f16ae"
+            ],
+            "dependencies": [
+              "dc53b012-7b90-400f-adae-5ef66a83c6f3"
+            ]
+          },
+          "f354cc85-0f21-4f52-a43c-50deb11f16ae": {
+            "taskId": "f354cc85-0f21-4f52-a43c-50deb11f16ae",
+            "phase": "publish",
+            "display": "Publish",
+            "status": "finished",
+            "dependents": [],
+            "dependencies": [
+              "9e6fe100-3606-4e32-adab-84992198b942"
+            ]
+          },
+          "7b398937-ec6b-47d1-a75a-0f28c994eeb4": {
+            "taskId": "7b398937-ec6b-47d1-a75a-0f28c994eeb4",
+            "phase": "transcripts",
+            "display": "Transcripts",
+            "status": "finished",
+            "dependents": [
+              "e753ad14-5149-4429-b05a-ad467910b0b4"
+            ],
+            "dependencies": [
+              "9bdacf28-9952-408c-9331-8df75e9c4a21"
+            ]
+          }
+        }
+      }
+    },
+    "dateCreated": "2017-01-10T21:49:22.000Z",
+    "transcripts": {
+      "latest": {
+        "revision": "4ddca2c3-1e0c-46ba-b045-9ef89f32c430",
+        "engine": "standard",
+        "confidence": 0.93497267155759,
+        "words": [
+          {
+            "p": 0,
+            "s": 2350,
+            "c": 0.878,
+            "e": 2850,
+            "w": "Hi"
+          },
+          {
+            "p": 1,
+            "s": 2850,
+            "c": 0.88,
+            "e": 3230,
+            "w": "John"
+          },
+          {
+            "p": 2,
+            "c": 0,
+            "s": 3230,
+            "e": 3230,
+            "w": ".",
+            "m": "punc"
+          },
+          {
+            "p": 3,
+            "s": 3340,
+            "c": 0.701,
+            "e": 3570,
+            "w": "This"
+          },
+          {
+            "p": 4,
+            "s": 3570,
+            "c": 0.984,
+            "e": 3750,
+            "w": "is"
+          },
+          {
+            "p": 5,
+            "s": 3750,
+            "c": 0.861,
+            "e": 3950,
+            "w": "Brian"
+          },
+          {
+            "p": 6,
+            "s": 3950,
+            "c": 0.391,
+            "e": 4500,
+            "w": "I'm"
+          },
+          {
+            "p": 7,
+            "s": 4500,
+            "c": 0.704,
+            "e": 4880,
+            "w": "giving"
+          },
+          {
+            "p": 8,
+            "s": 4880,
+            "c": 0.874,
+            "e": 4950,
+            "w": "you"
+          },
+          {
+            "p": 9,
+            "s": 4950,
+            "c": 0.779,
+            "e": 5100,
+            "w": "a"
+          },
+          {
+            "p": 10,
+            "s": 5100,
+            "c": 0.881,
+            "e": 5200,
+            "w": "call"
+          },
+          {
+            "p": 11,
+            "s": 5200,
+            "c": 0.654,
+            "e": 5430,
+            "w": "back"
+          },
+          {
+            "p": 12,
+            "s": 5430,
+            "c": 0.796,
+            "e": 5769,
+            "w": "about"
+          },
+          {
+            "p": 13,
+            "s": 5770,
+            "c": 0.603,
+            "e": 6200,
+            "w": "our"
+          },
+          {
+            "p": 14,
+            "s": 6200,
+            "c": 0.845,
+            "e": 6660,
+            "w": "kitchen"
+          },
+          {
+            "p": 15,
+            "s": 6660,
+            "c": 0.972,
+            "e": 7020,
+            "w": "sink"
+          },
+          {
+            "p": 16,
+            "c": 0,
+            "s": 7020,
+            "e": 7020,
+            "w": ".",
+            "m": "punc"
+          },
+          {
+            "p": 17,
+            "s": 7090,
+            "c": 0.253,
+            "e": 7950,
+            "w": "Please"
+          },
+          {
+            "p": 18,
+            "s": 7950,
+            "c": 0.88,
+            "e": 8070,
+            "w": "give"
+          },
+          {
+            "p": 19,
+            "s": 8070,
+            "c": 0.885,
+            "e": 8180,
+            "w": "me"
+          },
+          {
+            "p": 20,
+            "s": 8180,
+            "c": 0.812,
+            "e": 8320,
+            "w": "a"
+          },
+          {
+            "p": 21,
+            "s": 8320,
+            "c": 0.925,
+            "e": 8430,
+            "w": "call"
+          },
+          {
+            "p": 22,
+            "s": 8430,
+            "c": 0.717,
+            "e": 8690,
+            "w": "back"
+          },
+          {
+            "p": 23,
+            "s": 8690,
+            "c": 0.596,
+            "e": 9150,
+            "w": "at"
+          },
+          {
+            "p": 24,
+            "s": 9150,
+            "c": 0.95,
+            "e": 13040,
+            "w": "650-248-9652"
+          },
+          {
+            "p": 25,
+            "s": 13810,
+            "c": 0.229,
+            "e": 13980,
+            "w": "thank"
+          },
+          {
+            "p": 26,
+            "s": 13990,
+            "c": 0.764,
+            "e": 14100,
+            "w": "you"
+          },
+          {
+            "p": 27,
+            "c": 0,
+            "s": 14100,
+            "e": 14100,
+            "w": ".",
+            "m": "punc"
+          },
+          {
+            "p": 28,
+            "s": 14110,
+            "c": 0.49,
+            "e": 14730,
+            "w": "By"
+          },
+          {
+            "p": 29,
+            "c": 0,
+            "s": 14730,
+            "e": 14730,
+            "w": ".",
+            "m": "punc"
+          }
+        ],
+        "name": "latest"
+      }
+    },
+    "keywords": {
+      "latest": {
+        "revision": "4ddca2c3-1e0c-46ba-b045-9ef89f32c430",
+        "words": [
+          {
+            "t": {
+              "unknown": [
+                "6.2"
+              ]
+            },
+            "name": "kitchen",
+            "relevance": "5.74952226429e-19"
+          },
+          {
+            "t": {
+              "unknown": [
+                "3.75"
+              ]
+            },
+            "name": "brian",
+            "relevance": "7.78113224113e-20"
+          }
+        ],
+        "groups": []
+      }
+    },
+    "topics": {
+      "latest": {
+        "revision": "4ddca2c3-1e0c-46ba-b045-9ef89f32c430",
+        "topics": []
+      }
+    }
+  }
+}

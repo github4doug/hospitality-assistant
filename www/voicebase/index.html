@@ -1,0 +1,110 @@
+<html>
+    <head>
+        <title>VoiceBase JPlayer - Audio</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="css/jquery-ui-1.10.4.custom.min.css"/>
+        <link type="text/css" href="js/lib/jplayer/skins/blue.monday/jplayer.blue.monday.css" rel="stylesheet" />
+        <link rel="stylesheet" href="css/jwplayer.vb-sdk-plugin.css"/>
+
+        <script type="text/javascript" src="js/lib/jquery-1.9.1.min.js"></script>
+        <script type="text/javascript" src="js/lib/fuse.min.js" async></script>
+
+        <script type="text/javascript" src="js/jquery.voicebase.js"></script>
+
+        <script type="text/javascript" src="js/lib/jquery.zclip.js"></script>
+        <script type="text/javascript" src="js/lib/jquery-ui-1.10.4.custom.min.js"></script>
+
+        <script type="text/javascript" src="js/lib/jplayer/jquery.jplayer.min.js"></script>
+
+        <style type="text/css">
+            .content {
+                width: 840px;
+                margin: 0 auto;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="content">
+            <div id="app">
+                <div id="jplayer" class="jp-jplayer"></div>
+                <div id="jp_container_1" class="jp-audio">
+                    <div class="jp-type-single">
+                        <div class="jp-gui jp-interface">
+                            <ul class="jp-controls">
+                                <li><a href="javascript:;" class="jp-play" tabindex="1">play</a></li>
+                                <li><a href="javascript:;" class="jp-pause" tabindex="1">pause</a></li>
+                                <li><a href="javascript:;" class="jp-stop" tabindex="1">stop</a></li>
+                                <li><a href="javascript:;" class="jp-mute" tabindex="1" title="mute">mute</a></li>
+                                <li><a href="javascript:;" class="jp-unmute" tabindex="1" title="unmute">unmute</a></li>
+                                <li><a href="javascript:;" class="jp-volume-max" tabindex="1" title="max volume">max volume</a></li>
+                            </ul>
+                            <div class="jp-progress">
+                                <div class="jp-seek-bar">
+                                    <div class="jp-play-bar"></div>
+                                </div>
+                            </div>
+                            <div class="jp-volume-bar">
+                                <div class="jp-volume-bar-value"></div>
+                            </div>
+                            <div class="jp-time-holder">
+                                <div class="jp-current-time"></div>
+                                <div class="jp-duration"></div>
+                                <ul class="jp-toggles">
+                                    <li><a href="javascript:;" class="jp-repeat" tabindex="1" title="repeat">repeat</a></li>
+                                    <li><a href="javascript:;" class="jp-repeat-off" tabindex="1" title="repeat off">repeat off</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="jp-details">
+                            <ul>
+                                <li><span class="jp-title"></span></li>
+                            </ul>
+                        </div>
+                        <div class="jp-no-solution">
+                            <span>Update Required</span>
+                            To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+
+            <script type='text/javascript'>
+                $(document).ready(function(){
+	                $.getJSON('./media/third-data.json', function (json) {
+                    $("#jplayer").jPlayer({
+                        ready: function () {
+                            $(this).jPlayer("setMedia", {
+                                wav: "voicemail.wav"
+                            });
+                        },
+                        swfPath: "js/lib/jplayer",
+                        supplied: "wav"
+                    });
+
+                    jQuery('#app').voicebase({
+                        playerId: 'jplayer',
+                        playerType: 'jplayer',
+                   	 	localData: json,
+                        lineBreak: '1.0',
+                        keywordsGroups: true,
+                        editKeywords: true,
+                        trackEvents: true,
+                        keywordsColumns: "topics",
+                        stream: 'http',
+                        actionFlag: {
+                            edit: true,
+                            evernote: true
+                        }
+                    });
+
+                });
+			});
+
+            </script>
+        </div>
+
+    </body>
+</html>
+
+

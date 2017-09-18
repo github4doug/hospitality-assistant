@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>VoiceBase Customer Demo</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <link rel="stylesheet" href="css/jquery-ui-1.10.4.custom.min.css"/>
+    <link type="text/css" href="js/lib/jplayer/skins/blue.monday/jplayer.blue.monday.css" rel="stylesheet" />
+    <link rel="stylesheet" href="css/jwplayer.vb-sdk-plugin.css"/>
+    <script type="text/javascript" src="js/lib/jquery-1.9.1.min.js"></script>
+    <script type="text/javascript" src="js/lib/fuse.min.js"></script>
+
+    <script type="text/javascript" src="js/jquery.voicebase.js"></script>
+
+    <script type="text/javascript" src="js/lib/jquery.zclip.js"></script>
+    <script type="text/javascript" src="js/lib/jquery-ui-1.10.4.custom.min.js"></script>
+
+    <script type="text/javascript" src="js/lib/jplayer/jquery.jplayer.min.js"></script>
+
+    <style type="text/css">
+      .content {
+        width: 840px;
+        margin: 0 auto;
+      }
+    </style>
+
+    <style type="text/css">
+      /* To hide this and require a streaming url and analytics JSON,
+         set this style to:
+         display: none;
+      */
+
+      #apiInputSection {
+        display: block;
+      }
+
+      /* To hide this and require a mediaId and token,
+         set this style to:
+         display: block;
+      */
+      #dataInputSection {
+        display: none;
+      }
+    </style>
+
+    <script type="text/javascript">
+    (function (jQuery) {
+      var voicebaseUrl = 'https://apis.voicebase.com/v2-beta/';
+
+      var elementNames = {
+        apiInputSection: 'apiInputSection',
+        tokenInput: 'token',
+        mediaIdInput: 'mediaId',
+        getApiDataButton: 'getData',
+        dataInputSection: 'dataInputSection',
+        showPlayerFromApiButton: 'showPlayerFromApi',
+        streamingUrlInput: 'streamingUrl',
+        analyticsJsonInput: 'analyticsJson',
+        loadPlayerFromData: 'loadPlayerFromData',
+        jplayer: 'jplayer',
+        app: 'app'
+      };
+
+      var elements = jQuery.extend({}, elementNames),
+        selectors = jQuery.extend({}, elementNames);
+
+      for (var s in selectors) { selectors[s] = '#' + elementNames[s]; }
+
+      // Now the elements and selectors (e.g. '#mediaId') can be accessed
+      // Using elements.mediaId, and selectors.mediaId, respectively
+
+      jQuery(document).ready(function onDocumentReady() { 
+
+        jQuery(selectors.getApiDataButton).click(onGetApiDataButtonClick);
+
+        jQuery(selectors.loadPlayerFromData).click(onLoadPlayerFromData);
+      });
+
+      function onGetApiDataButtonClick() {
+        console.log('Loading data (streaming url and analytics JSON) from API...');
+
+        var token = getToken();
+        var mediaId = getMediaId();
+
+        console.log('token of length', token.length);
+        console.log('mediaId', mediaId);
+
+        var analyticsJsonLoaded = loadAnalyticsJsonFromApi(token, mediaId)
+          .then(setAnalyticsJson)
+          .then(showDataInputSection);
+
+        var streamingUrlLoaded = loadStreamingUrlFromApi(token, mediaId)
+          .then(setStreamingUrl)
+          .then(showDataInputSection);
+
+        Promise.all([ analyticsJsonLoaded, streamingUrlLoaded ])
+          .then(hideApiInputSection)
+
+      }
+
+      function loadAnalyticsJsonFromApi(token, mediaId) {
+        var url = voicebaseUrl + 'media/' + mediaId;
+        console.log('Asynchronously loading analytics from:', url);
+
+        return new Promise(function (resolve, reject) {
+          var headers = { 'Authorization': 'Bearer ' + token };
+          jQuery.ajax({
+            headers: headers,
+            url: url
+          })
+          .done(function onMediaGetApiCallSuccess(responseBody) {
+            // expect: { "media": { "mediaId": "..." ...} }
+            console.log('received media get response', responseBody)
+            if (!! responseBody && !! responseBody.media) {
+              resolve(JSON.stringify(responseBody))
+            } else {
+              reject(new Error('Not a valid /media GET response', responseBody));
+            }
+          })
+          .fail(function onMediaGetApiCallFailure(reason) {
+            reject(new Error('/media GET API call failed because of', reason));
+          })
+        });
+      }
+
+      function loadStreamingUrlFromApi(token, mediaId) {
+        var url = voicebaseUrl + 'media/' + mediaId + '/streams';
+        console.log('Asynchronously loading streaming url from:', url);
+
+        return new Promise(function (resolve, reject) {
+          var headers = { 'Authorization': 'Bearer ' + token };
+          jQuery.ajax({
+            headers: headers,
+            url: url
+          })
+          .done(function onStreamsApiCallSuccess(responseBody) {
+            // expect: { "streams": { "original": "https://the-url-we-want"}}
+            var _body = responseBody || {},
+              streams = _body.streams || {},
+              streamingUrl = streams.original || {};
+            if (!! streamingUrl) {
+              resolve(streamingUrl)
+            } else {
+              reject(new Error('Could not get streaming url from', responseBody));
+            }
+          })
+          .fail(function onStreamApiCallFailure(reason) {
+            reject(new Error('streams API call failed because of', reason));
+          })
+        });
+      }
+  
+
+      function onLoadPlayerFromData() { 
+        console.log('Loading player from data (streaming url and analytics JSON)');
+
+        var streamingUrl = getStreamingUrl();
+        var analyticsJson = getAnalyticsJson();
+
+        var token = getToken();
+        var mediaId = getMediaId();
+        console.log('streamingUrl', streamingUrl);
+        console.log('analyticsJson of length', analyticsJson.length);
+
+        var analyticsData = JSON.parse(analyticsJson);
+
+        jQuery(selectors.jplayer).jPlayer({
+            ready: function () {
+                jQuery(this).jPlayer("setMedia", {
+                    m4a: streamingUrl
+                });
+            },
+            swfPath: "js/lib/jplayer",
+            supplied: "m4a"
+        });
+
+        jQuery(selectors.app).voicebase({
+            playerId: elements.jplayer,
+            playerType: 'jplayer',
+            //apiUrl: 'https://apis.voicebase.com/v2-beta/',
+            token: token,
+            //mediaID: mediaId,
+            apiVersion: '2.0',
+            localData: analyticsData,
+            localSearch: true,
+            // mediaTypeOverride: 'audio' // use if v2 api don't return media type
+        });
+      }
+    
+      function getToken() {
+        return jQuery(selectors.tokenInput).val();
+      }
+
+      function getMediaId() {
+        return jQuery(selectors.mediaIdInput).val();
+      }
+
+      function getStreamingUrl() {
+        return jQuery(selectors.streamingUrlInput).val();
+      }
+
+      function setStreamingUrl(url) {
+        return jQuery(selectors.streamingUrlInput).val(url);
+      }
+
+      function getAnalyticsJson() {
+        return jQuery(selectors.analyticsJsonInput).val();
+      }
+
+      function setAnalyticsJson(analytics) {
+        return jQuery(selectors.analyticsJsonInput).val(analytics);
+      }
+
+      function showApiInputSection() {
+        return jQuery(selectors.apiInputSection).show()
+      }
+
+      function showDataInputSection() {
+        return jQuery(selectors.dataInputSection).show()
+      }
+
+      function hideApiInputSection() {
+        return jQuery(selectors.apiInputSection).hide()
+      }
+
+      function hideDataInputSection() {
+        return jQuery(selectors.dataInputSection).hide()
+      }
+
+    })(window.jQuery);
+    </script>
+
+  </head>
+  <body>
+    <div class="content">
+        <div id="apiInputSection">
+          <div>
+            <label for="token">Token: </label>
+            <input id="token" type="text" />
+            <label for="mediaId">MediaId: </label>
+            <input id="mediaId" type="text" value="6508cbaf-2c54-4b33-b744-f6f741200e7b" />
+          </div>
+          <div>
+            <button id="getData">Get Data</button>
+            <label for="getData">Get Media Url and Analytics JSON from API</label>
+          </div>
+          <div>
+            <button id="showPlayerDirectly">Show Player (API)</button>
+            <label for="showPlayerDirectly">Show Player directly from the API
+          </div>
+        </div>
+        <div id="dataInputSection">
+            <div>
+                <label for="streamingUrl">Streaming Url:</label>
+                <input id="streamingUrl" type="text" />
+            </div>
+            <div>
+                <label for="analyticsJson">Analytics JSON:</label>
+                <textarea id="analyticsJson"></textarea>
+            </div>
+            <div>
+              <label for="loadPlayerFromData">Load player from Data (Streaming Url and Analytics JSON)</label>
+              <button id="loadPlayerFromData">Load Player (Data)</button>
+            </div>
+        </div>
+        <div id="app">
+            <div id="jplayer" class="jp-jplayer"></div>
+            <div id="jp_container_1" class="jp-audio">
+                <div class="jp-type-single">
+                    <div class="jp-gui jp-interface">
+                        <ul class="jp-controls">
+                            <li><a href="javascript:;" class="jp-play" tabindex="1">play</a></li>
+                            <li><a href="javascript:;" class="jp-pause" tabindex="1">pause</a></li>
+                            <li><a href="javascript:;" class="jp-stop" tabindex="1">stop</a></li>
+                            <li><a href="javascript:;" class="jp-mute" tabindex="1" title="mute">mute</a></li>
+                            <li><a href="javascript:;" class="jp-unmute" tabindex="1" title="unmute">unmute</a></li>
+                            <li><a href="javascript:;" class="jp-volume-max" tabindex="1" title="max volume">max volume</a></li>
+                        </ul>
+                        <div class="jp-progress">
+                            <div class="jp-seek-bar">
+                                <div class="jp-play-bar"></div>
+                            </div>
+                        </div>
+                        <div class="jp-volume-bar">
+                            <div class="jp-volume-bar-value"></div>
+                        </div>
+                        <div class="jp-time-holder">
+                            <div class="jp-current-time"></div>
+                            <div class="jp-duration"></div>
+                            <ul class="jp-toggles">
+                                <li><a href="javascript:;" class="jp-repeat" tabindex="1" title="repeat">repeat</a></li>
+                                <li><a href="javascript:;" class="jp-repeat-off" tabindex="1" title="repeat off">repeat off</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="jp-details">
+                        <ul>
+                            <li><span class="jp-title"></span></li>
+                        </ul>
+                    </div>
+                    <div class="jp-no-solution">
+                        <span>Update Required</span>
+                        To play the media you will need to either update your browser to a recent version or update your <a href="http://get.adobe.com/flashplayer/" target="_blank">Flash plugin</a>.
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </body>
+</html>
+
+
