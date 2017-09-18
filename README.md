@@ -2,9 +2,10 @@ Hospitality Assistant
 =
 Conversational app for hosts to improve their communication with guests.
 
-|          |          |
-|----------|----------|
-| ![](https://media.giphy.com/media/3ohhwnNrJ4V7TDl3nW/giphy.gif) | This project intends to showcase AI technology targeting a specific vertical: the Hospitality industry. The Hospitality Assistant will leverage machine learning, natural language understanding and speech using leading edge cloud services including AWS, Google, VoiceBase, Twilio and Tropo for practical user stories. The overall goal is to improve communication between host and guest.
+### Summary
+ This project intends to showcase AI technology targeting a specific vertical: the Hospitality industry. The Hospitality Assistant will leverage machine learning, natural language understanding and speech using leading edge cloud services including ![AWS](https://aws.amazon.com/amazon-ai/), ![Google](https://ai.google/), ![VoiceBase](https://www.voicebase.com/), ![Twilio](https://www.twilio.com/) and ![Tropo](https://www.tropo.com/) for practical user stories. The overall goal is to improve communication between host and guest.
+
+![](https://media.giphy.com/media/3ohhwnNrJ4V7TDl3nW/giphy.gif)
 
 * [User Stories](#user-stories)
 * [Installation](#installation)
