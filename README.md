@@ -28,4 +28,4 @@ $ npm install
 $ npm start
 ```
 ### Sample App
-It is still early days. However you can get an idea of things to come by [launching this demo](http://bit.ly/2hdVxfn/).
+It is still early days. However you can get an idea of things to come by [launching this demo](http://bit.ly/2hdVxfn).
