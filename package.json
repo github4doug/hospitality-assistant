@@ -1,0 +1,31 @@
+{
+  "name": "hospitality-assistant",
+  "version": "0.1.0",
+  "description": "hospitality-assistant",
+  "private": true,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/github4doug/hospitality-assistant"
+  },
+  "author": "dkobayashi",
+  "bugs": {
+    "url": "https://github.com/github4doug/hospitality-assistant/issues"
+  },
+  "homepage": "https://awssandboxhospitalityassistant.s3-website-us-west-2.amazonaws.com/",
+  "dependencies": {
+    "d3": "^4.10.2",
+    "isomorphic-fetch": "^2.2.1",
+    "react": "^15.6.1",
+    "react-dom": "^15.6.1",
+    "react-simple-chatbot": "^0.2.6"
+  },
+  "devDependencies": {
+    "react-scripts": "1.0.13"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}

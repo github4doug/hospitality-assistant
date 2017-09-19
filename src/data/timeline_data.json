@@ -1,0 +1,169 @@
+{
+    "Calls": [
+        {
+            "Date": 1977,
+            "Contact": "Mark",
+            "EventDate":"Aug 16, 2017",
+            "EventTime":"9:00 AM",
+            "Duration":"9 sec",
+            "Event Title": "Incoming Call",
+            "Event Description": "Call Description"
+
+        },
+        {
+            "Date": 1980,
+            "Contact": "Mark",
+            "EventDate":"Aug 16, 2017",
+            "EventTime":"12:00 PM",
+            "Duration":"9 sec",
+            "Event Title": "Outgoin Call",
+            "Event Description": "Call Description"
+        },
+        {
+            "Date": 1995,
+            "Contact": "Mark",
+            "EventDate":"Aug 17, 2017",
+            "EventTime":"8:58 AM",
+            "Duration":"0 sec",
+            "Event Title": "Outoing Call",
+            "Event Description": "Call Description"
+        },
+        {
+            "Date": 1997,
+            "Contact": "Mark",
+            "EventDate":"Aug 17, 2017",
+            "EventTime":"10:58 AM",
+            "Duration":"9 sec",
+            "Event Title": "Incoming Call",
+            "Event Description": "Call Description"
+        },
+        {
+            "Date": 2002,
+            "Contact": "Mark",
+            "EventDate":"Aug 17, 2017",
+            "EventTime":"3:30 PM",
+            "Duration":"30 sec",
+            "Event Title": "Outgoing Call",
+            "Event Description": "Call Description"
+        },
+        {
+            "Date": 2007,
+            "Contact": "Mark",
+            "EventDate":"Aug 17, 2017",
+            "EventTime":"8:00 PM",
+            "Duration":"9 sec",
+            "Event Title": "Incoming Call",
+            "Event Description": "Call Description"
+        },
+        {
+            "Date": 2010,
+            "Contact": "Mark",
+            "EventDate":"Aug 17, 2017",
+            "EventTime":"11:00 PM",
+            "Duration":"9 sec",
+            "Event Title": "Incoming Call",
+            "Event Description": "Call Description"
+        },
+        {
+            "Date": 2011,
+            "Contact": "Mark",
+            "EventDate":"Aug 18, 2017",
+            "EventTime":"12:00 AM",
+            "Duration":"9 sec",
+            "Event Title": "Incoming Call",
+            "Event Description": "Call Description"
+        },
+        {
+            "Date": 2012,
+            "Contact": "Mark",
+            "EventDate":"Aug 18, 2017",
+            "EventTime":"1:00 AM",
+            "Duration":"9 sec",
+            "Event Title": "Incoming Call",
+            "Event Description": "Call Description"
+        },
+        {
+            "Date": 2016,
+            "Contact": "Mark",
+            "EventDate":"Aug 18, 2017",
+            "EventTime":"6:15 AM",
+            "Duration":"9 sec",
+            "Event Title": "Outgoing Call",
+            "Event Description": "Call Description"
+        }
+    ],
+    "Texting": [
+        {
+            "Date": 1879,
+            "Contact": "Mark",
+            "EventDate":"Aug 16, 2017",
+            "EventTime":"1:58 PM",
+            "Event Title": "Incoming Text",
+            "Event Description": "Text Description"
+        },
+        {
+            "Date": 1882,
+            "Contact": "Mark",
+            "EventDate":"Aug 16, 2017",
+            "EventTime":"4:30 PM",
+            "Event Title": "Outgoing Text",
+            "Event Description": "Text Description"
+        },
+        {
+            "Date": 1924,
+            "Contact": "Mark",
+            "EventDate":"Aug 18, 2017",
+            "EventTime":"8:58 AM",
+            "Event Title": "Incoming Text",
+            "Event Description": "Text Description"
+        },
+        {
+            "Date": 1926,
+            "Contact": "Mark",
+            "EventDate":"Aug 18, 2017",
+            "EventTime":"10:35 AM",
+            "Event Title": "Incoming Text",
+            "Event Description": "Text Description"
+        },
+        {
+            "Date": 1932,
+            "Contact": "Mark",
+            "EventDate":"Aug 18, 2017",
+            "EventTime":"4:02 PM",
+            "Event Title": "Outgoing Text",
+            "Event Description": "Text Description"
+        },
+        {
+            "Date": 1936,
+            "Contact": "Mark",
+            "EventDate":"Aug 18, 2017",
+            "EventTime":"8:58 PM",
+            "Event Title": "Outgoing Text",
+            "Event Description": "Text Description"
+        },
+        {
+            "Date": 1949,
+            "Contact": "Mark",
+            "EventDate":"Aug 19, 2017",
+            "EventTime":"7:58 AM",
+            "Event Title": "Incoming Text",
+            "Event Description": "Text Description"
+        },
+        {
+            "Date": 1958,
+            "Contact": "Mark",
+            "EventDate":"Aug 19, 2017",
+            "EventTime":"5:58 PM",
+            "Event Title": "Incoming Text",
+            "Event Description": "Text Description"
+        },
+        {
+            "Date": 1964,
+            "Contact": "Mark",
+            "EventDate":"Aug 19, 2017",
+            "EventTime":"11:58 PM",
+            "Event Title": "Outgoing Text",
+            "Event Description": "Text Description"
+        }
+    ]
+}

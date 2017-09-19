@@ -3,7 +3,7 @@ Hospitality Assistant
 Conversational app for hosts to improve their communication with guests.
 
 ### Summary
- This project intends to showcase AI technology targeting a specific vertical: the Hospitality industry. The Hospitality Assistant will leverage machine learning, natural language understanding and speech using leading edge cloud services including ![AWS](https://aws.amazon.com/amazon-ai/), ![Google](https://ai.google/), ![VoiceBase](https://www.voicebase.com/), ![Twilio](https://www.twilio.com/) and ![Tropo](https://www.tropo.com/) for practical user stories. The overall goal is to improve communication between host and guest.
+ This project intends to showcase AI technology targeting a specific vertical, the Hospitality industry. The Hospitality Assistant will leverage machine learning, natural language understanding and speech using leading edge cloud services including [AWS](https://aws.amazon.com/amazon-ai/), [Google](https://ai.google/), [VoiceBase](https://www.voicebase.com/), [Twilio](https://www.twilio.com/) and [Tropo](https://www.tropo.com/) for practical use cases. The overall goal is to improve communication between host and guest.
 
 ![](https://media.giphy.com/media/3ohhwnNrJ4V7TDl3nW/giphy.gif)
 
@@ -28,4 +28,4 @@ $ npm install
 $ npm start
 ```
 ### Sample App
-tbd link here
+It is still early days. However you can get an idea of things to come by [launching this demo](http://bit.ly/2hdVxfn/).
