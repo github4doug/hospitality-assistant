@@ -8,7 +8,19 @@ AWS.config.credentials = new AWS.CognitoIdentityCredentials({
 
 var lexruntime = new AWS.LexRuntime();
 var lexUserId = 'chatbot-demo' + Date.now();
-var sessionAttributes = {};
+var sessionAttributes = {firstName:"kenzi",
+                         lastName:"douglas",
+                         city:"stanley",
+                         state:"california",
+                         email:"email@example.com",
+                         phone: "14155555555",
+                         country:"USA",
+                         datetime:"2008-03-09 16:05:07.123",
+                         source: "email",
+                         type: "locked out",
+	                       message:"Hi. I am locked out of apartment 23 and really need your help ASAP! Waiting on what to do next"
+                        };
+
 // document.getElementById("wisdom").focus();
 
 export function pushChat() {
@@ -25,7 +37,7 @@ export function pushChat() {
 		// send it to the Lex runtime
 		var params = {
 			botAlias: '$LATEST',
-			botName: 'BookTrip',
+			botName: 'HospitalityAssistant',
 			inputText: wisdom,
 			userId: lexUserId,
 			sessionAttributes: sessionAttributes

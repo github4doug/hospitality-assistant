@@ -1,16 +1,30 @@
 Hospitality Assistant
 =
 Conversational app for hosts to improve their communication with guests.
+- sounds nice, show me a
+[DEMO](http://bit.ly/2hdVxfn).
 
 ### Summary
- This project intends to showcase AI technology targeting a specific vertical, the Hospitality industry. The Hospitality Assistant will leverage machine learning, natural language understanding and speech using leading edge cloud services including [AWS](https://aws.amazon.com/amazon-ai/), [Google](https://ai.google/), [VoiceBase](https://www.voicebase.com/), [Twilio](https://www.twilio.com/) and [Tropo](https://www.tropo.com/) for practical use cases. The overall goal is to improve communication between host and guest.
+ This project intends to showcase AI technology targeting a specific vertical, the Hospitality industry. The Hospitality Assistant will leverage machine learning, natural language understanding and speech using leading edge cloud services including [AWS](https://aws.amazon.com/amazon-ai/), [Google](https://ai.google/), [VoiceBase](https://www.voicebase.com/), [Twilio](https://www.twilio.com/)  for practical use cases. The overall goal is to improve communication between host and guest.
 
 ![](https://media.giphy.com/media/3ohhwnNrJ4V7TDl3nW/giphy.gif)
 
+![](src/images/hospitality-assistant-demo.png)
+* [Architecture](#design)
 * [User Stories](#user-stories)
 * [Installation](#installation)
 * [Sample App](#sample-app)
 
+### Architecture
+This is constantly changing
+* AWS Lambda and S3 serverless architecture
+* NoSQL DynamoDB
+* AWS Cognito authentication
+* AWS Lex  conversational speech and text services
+* Twilio voice and texting services
+* Voicebase recording and speech analytics
+
+![](src/images/hospitality.png)
 ### User Stories
 * __Story 1 High Alert__   <p> As a host, get notified by the Assistant when urgent voice or text msgs need immediate attention in order to respond quickly. The Assistant will make judgements based on data from voice msgs, text msgs, guest profile and guest history.
 * __Story 2 Compliance__ <p> As a host, get notified when any communication is out of compliance and get information on current standards and what you can and should not say or write to a guest. The Assistant can be configured to alert any party interested in communication compliance violations.
@@ -28,4 +42,4 @@ $ npm install
 $ npm start
 ```
 ### Sample App
-It is still early days. However you can get an idea of things to come by [launching this demo](http://bit.ly/2hdVxfn).
+It is still early days. However you can get an idea of things to come by [launching the latest demo](http://bit.ly/2hdVxfn).

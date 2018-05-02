@@ -9,7 +9,7 @@ import './fix/chatbot.css';
 import {pushChat,showResponse} from './fix/chatbot';
 import chatbotFace from './images/face95.jpg';
 import MemberList from './components/MemberList';
-const BotGreeting = {message: "So let's start this demo and let me show you what i can do."};
+const BotGreeting = {message: "So it's demo time! Just type 'demo' below and you will get a sample of what i can do."};
 
 class App extends React.Component {
   constructor(props) {
