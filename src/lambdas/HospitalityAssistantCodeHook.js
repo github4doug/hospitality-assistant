@@ -184,7 +184,7 @@ function generatePhoneCall(intentRequest, callback) {
         } else {
             console.log(data);           // successful response
             callback(close(intentRequest.sessionAttributes, 'Fulfilled',
-                           { contentType: 'PlainText', content: `Nice. I'm placing a demo phone call to ${phoneNumber} right now so just answer the call and i'll talk to you soon. BTW it will be from ${params.SourcePhoneNumber}` }));
+                           { contentType: 'PlainText', content: `Nice. I'm placing a demo phone call to ${phoneNumber} right now so just answer the call and listen to the prompts. Talk to you soon. Don't worry it is not a pesky human, just me your trusty assistant. BTW it will be from ${params.SourcePhoneNumber}` }));
         } 
     });
 }

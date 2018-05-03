@@ -10,7 +10,7 @@ Conversational app for hosts to improve their communication with guests.
 ![](https://media.giphy.com/media/3ohhwnNrJ4V7TDl3nW/giphy.gif)
 
 ![](src/images/hospitality-assistant-demo.png)
-* [Architecture](#design)
+* [Architecture](#architecture)
 * [User Stories](#user-stories)
 * [Installation](#installation)
 * [Sample App](#sample-app)
