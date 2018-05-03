@@ -76,7 +76,7 @@ class App extends React.Component {
         country: user.nat
       };
       Object.assign(sessionAttributes, this.userStories[thenum], userInfo);
-      console.log(sessionAttributes);
+      // console.log(sessionAttributes);
       this.setState({currentStory: thenum, sessionAttributes: sessionAttributes});
     //}
   }
@@ -166,9 +166,9 @@ class App extends React.Component {
       </section>
       <Contact/>
       <Footer/>
-      <Modal storyNum={0} onClick={this.handleClick.bind(this)}/>
-      <Modal storyNum={1} onClick={this.handleClick.bind(this)}/>
-      <Modal storyNum={2} onClick={this.handleClick.bind(this)}/>
+      <Modal storyNum={0} storyContent={this.userStories[0].content} onClick={this.handleClick.bind(this)}/>
+      <Modal storyNum={1} storyContent={this.userStories[1].content} onClick={this.handleClick.bind(this)}/>
+      <Modal storyNum={2} storyContent={this.userStories[2].content} onClick={this.handleClick.bind(this)}/>
     </div>
   );
 }
