@@ -9,8 +9,6 @@ Conversational app (bot) for hosts to improve their communication with guests.
 
  The Hospitality Assistant will utilize machine learning, natural language understanding and speech technology using leading edge cloud services including [AWS](https://aws.amazon.com/amazon-ai/), [Google](https://ai.google/), [VoiceBase](https://www.voicebase.com/), [Twilio](https://www.twilio.com/)  to assist and automate practical use cases. The overall goal is to improve communication between host and guest.
 
-![](https://media.giphy.com/media/3ohhwnNrJ4V7TDl3nW/giphy.gif)
-
 ![](src/images/hospitality-assistant-demo.png)
 * [Architecture](#architecture)
 * [User Stories](#user-stories)
