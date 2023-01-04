@@ -20,7 +20,7 @@
     "isomorphic-fetch": "*",
     "react": "^16.3.1",
     "react-dom": "^16.3.1",
-    "react-scripts": "1.1.4",
+    "react-scripts": "5.0.1",
     "react-simple-chatbot": "*",
     "styled-components": "^2.4.0"
   },
